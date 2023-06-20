@@ -13,10 +13,10 @@
  */
 int State::evaluate(){
 int score = 0;
-  for(int i = 0; i < BOARD_H; i++){
-      for(int j = 0; j < BOARD_W; j++){
-		int player_piece = board.board[player][i][j];
-		int enemy_piece = board.board[player ^ 1][i][j];
+  for(int i = 1; i <= BOARD_H; i++){
+      for(int j = 1; j <= BOARD_W; j++){
+		int player_piece = board.board[player][i-1][j-1];
+		int enemy_piece = board.board[!player][i-1][j-1];
 		score += piece_value[player_piece] - piece_value[enemy_piece];
 	  }
   }

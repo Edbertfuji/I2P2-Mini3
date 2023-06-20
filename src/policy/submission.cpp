@@ -1,9 +1,9 @@
 #include <cstdlib>
 #include "../state/state.hpp"
-#include "./minmax.hpp"
+#include "./submission.hpp"
 
 
-int MinMax::Minmax(State* state, int depth, bool Max_play) {
+int Submission::Minmax(State* state, int depth, bool Max_play) {
 		int minimum = 100000000;
         if (!Max_play) {
 			State* mstate = new State(state->board, !state->player);

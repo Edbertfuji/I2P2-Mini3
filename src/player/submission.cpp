@@ -3,7 +3,7 @@
 
 #include "../config.hpp"
 #include "../state/state.hpp"
-#include "../policy/minmax.h"
+#include "../policy/submission.h"
 
 
 State* root;
@@ -43,7 +43,7 @@ void write_valid_spot(std::ofstream& fout) {
     // Keep updating the output until getting killed.
     Move move;
     for (auto& iter : root->legal_actions) {
-        result = MinMax::Minmax(root->next_state(iter), 5, false);
+        result = Submission::Minmax(root->next_state(iter), 5, false);
         if (result >= maxi) {
             maxi = result;
             move = iter;
