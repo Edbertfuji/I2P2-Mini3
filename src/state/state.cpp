@@ -12,8 +12,15 @@
  * @return int 
  */
 int State::evaluate(){
-  // [TODO] design your own evaluation function
-  return 0;
+int score = 0;
+  for(int i = 0; i < BOARD_H; i++){
+      for(int j = 0; j < BOARD_W; j++){
+		int player_piece = board.board[player][i][j];
+		int enemy_piece = board.board[player ^ 1][i][j];
+		score += piece_value[player_piece] - piece_value[enemy_piece];
+	  }
+  }
+  return score;
 }
 
 
